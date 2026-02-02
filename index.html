@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+
+  .box {
+    background: rgba(255,255,255,0.15);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    max-width: 420px;
+    z-index: 2;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 12px 26px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  .yes {
+    background: #ff2d55;
+    color: white;
+  }
+
+  .no {
+    background: #333;
+    color: white;
+    position: absolute;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 18px;
+    margin-top: 15px;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Question Box -->
+<div class="box" id="questionBox">
+  <h1>Will you be my Valentine? 💖</h1>
+  <button class="yes" onclick="yesClicked()">Yes 💘</button>
+  <button class="no" id="noBtn" onmouseover="moveNo()">No 💔</button>
+</div>
+
+<!-- Surprise Message Box -->
+<div class="box hidden" id="surpriseBox">
+  <h1>I know u'll click YES 😏</h1>
+  <img src="us.jpg" alt="Us Together">
+</div>
+
+<script>
+  function yesClicked() {
+    document.getElementById("questionBox").classList.add("hidden");
+    document.getElementById("surpriseBox").classList.remove("hidden");
+  }
+
+  function moveNo() {
+    const btn = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+  }
+</script>
+
+</body>
+</html>
